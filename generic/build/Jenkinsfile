@@ -25,15 +25,10 @@ pipeline {
             }
         }
         
-        stage('Docker build') {
+        stage('Test') {
             steps {
-                echo 'Docker ...'
-                }
-            script {
-                sh """
-                    docker
-                """
-
+                echo 'Running tests...'
+                // Add your test steps here
             }
         }
     }
