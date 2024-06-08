@@ -11,12 +11,12 @@ pipeline {
         stage('Build') {
             steps {
                     withFolderProperties{
-                        PREVENT_BUILD = "${env.PREVENT_BUILD}"
-                        REPO = "${env.REPO}"
+                        prevent_build = "${env.PREVENT_BUILD}"
+                        repo = "${env.REPO}"
                     }
                     echo 'Building...'
-                    echo "PREVENT_BUILD=${env.PREVENT_BUILD}"
-                    echo "REPO=${env.REPO}"
+                    echo "PREVENT_BUILD=${env.prevent_build}"
+                    echo "REPO=${env.repo}"
                 // Add your build steps here
             }
         }
