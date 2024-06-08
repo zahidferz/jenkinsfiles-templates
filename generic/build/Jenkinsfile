@@ -30,7 +30,10 @@ pipeline {
                 echo 'Docker ...'
                 }
             script {
-                docker.build('backend/dockerfile')
+                sh """
+                    docker
+                """
+
             }
         }
     }
