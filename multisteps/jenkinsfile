@@ -11,6 +11,8 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Building...'
+                echo "PREVENT_BUILD=${env.PREVENT_BUILD}"
+                echo "REPO=${env.REPO}"
                 // Add your build steps here
             }
         }
