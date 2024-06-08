@@ -1,0 +1,37 @@
+pipeline {
+    agent any
+    
+    stages {
+        stage('Hello World') {
+            steps {
+                echo 'Hello, World!'
+            }
+        }
+        
+        stage('Build') {
+            steps {
+                script {
+                    def prevent_build = true
+                    def repo = 'empty'
+                    withFolderProperties{
+                        prevent_build = "${env.PREVENT_BUILD}"
+                        repo = "${env.REPO}"
+                    }
+                    echo 'Building...'
+                    echo "PREVENT_BUILD=" + prevent_build
+                    echo "REPO=" + repo
+                    // Add your build steps here
+                }
+            }
+        }
+        
+        stage('Docker build') {
+            steps {
+                echo 'Docker ...'
+                }
+            script {
+                docker.build('backend/dockerfile')
+            }
+        }
+    }
+}
