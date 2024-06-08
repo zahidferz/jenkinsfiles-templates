@@ -1,7 +1,5 @@
 pipeline {
     agent any
-    def prevent_build = true
-    def repo = 'empty'
     
     stages {
         stage('Hello World') {
@@ -13,6 +11,8 @@ pipeline {
         stage('Build') {
             steps {
                 script {
+                    def prevent_build = true
+                    def repo = 'empty'
                     withFolderProperties{
                         prevent_build = "${env.PREVENT_BUILD}"
                         repo = "${env.REPO}"
