@@ -18,8 +18,8 @@ pipeline {
                         repo = "${env.REPO}"
                     }
                     echo 'Building...'
-                    echo "PREVENT_BUILD=${env.prevent_build}"
-                    echo "REPO=${env.repo}"
+                    echo "PREVENT_BUILD="prevent_build
+                    echo "REPO="repo
                     // Add your build steps here
                 }
             }
