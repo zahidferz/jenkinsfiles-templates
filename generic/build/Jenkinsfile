@@ -1,44 +1,6 @@
-pipeline {
-    agent any
-    
-    stages {
-        stage('Hello World') {
-            steps {
-                echo 'Hello, World!'
-            }
-        }
-        
-        stage('Build') {
-            steps {
-                script {
-                    def prevent_build = true
-                    def repo = 'empty'
-                    withFolderProperties{
-                        prevent_build = "${env.PREVENT_BUILD}"
-                        repo = "${env.REPO}"
-                    }
-                    echo 'Building...'
-                    echo "PREVENT_BUILD=" + prevent_build
-                    echo "REPO=" + repo
-                    // Add your build steps here
-                }
-            }
-        }
-        
-        stage('k8s build') {
-            node('builder') {
-                try {
-                    script {
-                        sh """
-                            node -v
-                        """
-                    }
-                }
-                catch (Exception e) {
-                    echo "Error: ${e}"
-                }
-            }
-        }
+node (builder) {
+    stage('Example') {
+        echo 'Hello World'
+        node --version
     }
 }
-
