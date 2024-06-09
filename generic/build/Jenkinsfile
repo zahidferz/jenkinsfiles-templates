@@ -25,15 +25,16 @@ pipeline {
             }
         }
         
-        stage('Docker build') {
-            steps {
-                echo 'Docker ...'
-                script {
-                    sh """
-                        docker
-                    """
-                }
-                }
+        stage('k8s build') {
+            node('builder') {
+                steps {
+                    echo 'executing in  k8s ...'
+                    script {
+                        sh """
+                            node -v
+                        """
+                    }
+            }
         }
     }
 }
