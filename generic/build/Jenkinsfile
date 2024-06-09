@@ -1,6 +1,5 @@
 node (builder) {
     stage('Example') {
-        echo 'Hello World'
-        node --version
+        sh "node --version"
     }
 }
