@@ -27,15 +27,15 @@ pipeline {
         
         stage('k8s build') {
             node('builder') {
-                steps {
-                    echo 'executing in  k8s ...'
+                try {
                     script {
                         sh """
                             node -v
                         """
                     }
+                }
             }
         }
     }
 }
-}
+
