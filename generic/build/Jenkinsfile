@@ -1,7 +1,7 @@
 node ('builder') {
     stage('Example') {
         if (env.BRANCH_NAME == 'master') {
-            sh "node --version"
+            sh "echo hi"
         } else {
             echo 'I execute elsewhere'
         }
